@@ -66,7 +66,7 @@ export function Faq() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8"
           >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#101010] border border-[var(--color-brand-border)] text-[11px] font-medium tracking-[0.1em] text-white uppercase">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#101010] border border-[var(--color-brand-border)] text-[11px] font-medium tracking-[0.1em] text-[var(--color-brand-text)] uppercase">
               FAQ
             </span>
           </motion.div>
@@ -102,14 +102,14 @@ export function Faq() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
                   "group relative rounded-2xl bg-[#080808] border transition-colors duration-500 overflow-hidden",
-                  isOpen ? "border-[rgba(255,255,255,0.15)]" : "border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.15)]"
+                  isOpen ? "border-[rgba(15,23,42,0.15)]" : "border-[rgba(15,23,42,0.08)] hover:border-[rgba(15,23,42,0.15)]"
                 )}
               >
                 <button
                   onClick={() => toggle(i)}
                   className="w-full flex items-center justify-between p-6 lg:px-10 lg:py-8 text-left outline-none cursor-pointer"
                 >
-                  <span className="text-[18px] lg:text-[20px] font-medium text-white transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="text-[18px] lg:text-[20px] font-medium text-[var(--color-brand-text)] transition-transform duration-300 group-hover:translate-x-1">
                     {faq.q}
                   </span>
                   
@@ -117,7 +117,7 @@ export function Faq() {
                     <Plus 
                       className={cn(
                         "w-4 h-4 text-[var(--color-brand-text-secondary)] transition-transform duration-500",
-                        isOpen ? "rotate-[135deg] text-white" : "group-hover:rotate-90 group-hover:text-white"
+                        isOpen ? "rotate-[135deg] text-[var(--color-brand-text)]" : "group-hover:rotate-90 group-hover:text-[var(--color-brand-text)]"
                       )} 
                     />
                     <div className={cn(

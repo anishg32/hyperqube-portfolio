@@ -132,7 +132,7 @@ export function SpectrumGlow({ className, opacity = 1, variant = "section" }: Sp
           variants={animWhite}
           initial="hidden"
           animate={["show", "float"]}
-          className={cn(`absolute w-[50%] h-[60%] bg-[rgba(255,255,255,0.08)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          className={cn(`absolute w-[50%] h-[60%] bg-[rgba(15,23,42,0.08)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
         />
       </div>
     </div>

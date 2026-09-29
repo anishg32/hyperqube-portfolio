@@ -23,7 +23,7 @@ export function CapabilityStrip() {
         {MARQUEE.map((item, i) => (
           <div key={i} className="flex items-center">
             <span
-              className="text-[14px] sm:text-[16px] font-normal tracking-[0.24em] uppercase text-white"
+              className="text-[14px] sm:text-[16px] font-normal tracking-[0.24em] uppercase text-[var(--color-brand-text)]"
             >
               {item}
             </span>

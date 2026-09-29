@@ -40,7 +40,7 @@ export function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(5,5,5,0.9)] backdrop-blur-xl border-b border-[var(--color-brand-border)] h-14"
+          ? "bg-[rgba(255,255,255,0.8)] backdrop-blur-xl border-b border-[var(--color-brand-border)] h-14 shadow-sm"
           : "bg-transparent border-b border-transparent h-16"
       }`}
     >
@@ -82,7 +82,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center gap-1.5 bg-[var(--color-brand-accent)] px-4 py-[7px] text-[13px] font-normal text-white hover:bg-[var(--color-brand-accent-light)] transition-colors rounded-sm"
+            className="hidden md:inline-flex items-center gap-1.5 bg-[var(--color-brand-accent)] px-4 py-[7px] text-[13px] font-normal text-white hover:bg-[var(--color-brand-accent-light)] hover:shadow-[0_4px_10px_rgba(220,38,38,0.2)] transition-all rounded-[6px]"
           >
             Start a Project
             <svg
@@ -90,7 +90,7 @@ export function Navbar() {
               height="12"
               viewBox="0 0 12 12"
               fill="none"
-              className="opacity-70"
+              className="opacity-90"
               aria-hidden="true"
             >
               <path
@@ -137,7 +137,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={closeMobile}
-              className="mt-3 mb-1 flex items-center justify-center bg-[var(--color-brand-accent)] rounded-sm py-2.5 text-[14px] font-normal text-white"
+              className="mt-3 mb-1 flex items-center justify-center bg-[var(--color-brand-accent)] rounded-[6px] py-2.5 text-[14px] font-normal text-white shadow-[0_4px_10px_rgba(220,38,38,0.15)]"
             >
               Start a Project
             </a>

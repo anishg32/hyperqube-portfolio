@@ -14,9 +14,12 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   
-  // Parallax effects
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  // Subtle parallax effects
+  const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-10px"]);
+  const imgY = useTransform(scrollYProgress, [0, 1], ["0px", "-25px"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.04, 1]);
+  const imgOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  
   const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
@@ -44,7 +47,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center gap-3 mb-8"
           >
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#101010] border border-[var(--color-brand-border)] text-[11px] font-medium tracking-[0.1em] text-white uppercase">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[rgba(15,23,42,0.05)] border border-[rgba(15,23,42,0.1)] text-[11px] font-medium tracking-[0.1em] text-[var(--color-brand-text)] uppercase">
               Turn your ideas into reality
             </span>
           </motion.div>
@@ -76,14 +79,14 @@ export function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 bg-[var(--color-brand-accent)] px-7 py-3.5 text-[14px] font-normal text-white hover:bg-[var(--color-brand-accent-light)] transition-all duration-300"
+              className="group inline-flex items-center gap-2 bg-[var(--color-brand-accent)] px-7 py-3.5 text-[14px] font-normal text-white hover:bg-[var(--color-brand-accent-light)] hover:shadow-[0_8px_20px_rgba(220,38,38,0.2)] hover:-translate-y-0.5 transition-all duration-300 rounded-[8px]"
             >
               Start a Project
-              <ArrowRight className="w-4 h-4 opacity-70 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 opacity-90 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#what-we-build"
-              className="group relative inline-flex items-center gap-2 bg-[var(--color-brand-panel)] border border-[var(--color-brand-border)] hover:border-[var(--color-brand-border-hover)] px-6 py-3.5 text-[14px] font-normal text-[var(--color-brand-text)] hover:text-[var(--color-brand-accent)] transition-all rounded-sm"
+              className="group relative inline-flex items-center gap-2 bg-[var(--color-brand-panel)] border border-[var(--color-brand-border)] hover:border-[var(--color-brand-border-hover)] px-6 py-3.5 text-[14px] font-normal text-[var(--color-brand-text)] hover:text-[var(--color-brand-accent)] transition-all rounded-[8px]"
             >
               Explore What We Build
               <ArrowRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -93,10 +96,7 @@ export function Hero() {
 
         {/* ── Right: Editorial photo card ── */}
         <motion.div
-          variants={mediaReveal}
-          initial="hidden"
-          animate="show"
-          style={{ y: imgY }}
+          style={{ y: imgY, scale: imgScale, opacity: imgOpacity }}
           className="hidden lg:block relative"
         >
           {/* Subtle spectrum glow behind it */}
@@ -104,23 +104,27 @@ export function Hero() {
             <SpectrumGlow variant="card" />
           </div>
           
-          <div className="relative rounded-xl overflow-hidden aspect-[4/5] border border-[rgba(255,255,255,0.15)] bg-[var(--color-brand-card)] shadow-2xl">
+          <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] border border-[rgba(15,23,42,0.08)] bg-[var(--color-brand-card)] shadow-[0_30px_90px_rgba(15,23,42,0.15)] group">
             <img
               src="/office.avif"
               alt="HyperQube team at work"
-              className="absolute inset-0 w-full h-[110%] object-cover opacity-95"
+              className="absolute inset-0 w-full h-[105%] object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
             />
+            {/* Very subtle glass overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,23,42,0.05)] to-transparent pointer-events-none mix-blend-overlay" />
           </div>
 
-          {/* Small floating label */}
+          {/* Small floating glass label */}
           <motion.div
             initial={{ opacity: 0, x: 16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-            className="absolute -left-6 bottom-16 bg-[var(--color-brand-panel)] border border-[rgba(255,255,255,0.1)] px-5 py-3.5 shadow-2xl rounded-sm flex items-center gap-3"
+            className="absolute -left-8 bottom-16 bg-[rgba(255,255,255,0.55)] backdrop-blur-[22px] saturate-[140%] border border-[rgba(255,255,255,0.75)] shadow-[0_20px_60px_rgba(15,23,42,0.10)] px-5 py-3.5 rounded-[16px] flex items-center gap-3 overflow-hidden pointer-events-none"
           >
-            <span className="w-2 h-2 rounded-full bg-[var(--color-brand-accent)]" />
-            <span className="text-[11px] font-normal tracking-[0.18em] text-[var(--color-brand-text)] uppercase">
+            {/* Subtle spectrum inside glass label */}
+            <div className="absolute inset-0 mix-blend-overlay opacity-20 bg-[linear-gradient(90deg,rgba(255,0,0,0.1),rgba(255,165,0,0.1),rgba(255,255,0,0.1),rgba(0,128,0,0.1),rgba(0,0,255,0.1),rgba(75,0,130,0.1),rgba(238,130,238,0.1))]" />
+            <span className="w-2 h-2 rounded-full bg-[var(--color-brand-accent)] relative z-10 shadow-[0_0_8px_rgba(220,38,38,0.5)]" />
+            <span className="text-[11px] font-medium tracking-[0.18em] text-[#0F172A] uppercase relative z-10">
               Engineering Studio
             </span>
           </motion.div>

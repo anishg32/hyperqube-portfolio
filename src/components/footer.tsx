@@ -20,7 +20,7 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[14px] font-normal tracking-[-0.01em] text-white leading-none">
+                <span className="text-[14px] font-normal tracking-[-0.01em] text-[var(--color-brand-text)] leading-none">
                   HyperQube
                 </span>
                 <span className="text-[7px] font-normal tracking-[0.18em] text-[var(--color-brand-text-secondary)] uppercase leading-none mt-[2px]">

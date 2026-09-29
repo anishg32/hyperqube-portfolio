@@ -23,7 +23,7 @@ export function HeroMedia() {
           variants={mediaReveal}
           className="lg:hidden mb-10"
         >
-          <div className="relative rounded-xl overflow-hidden aspect-[16/10] border border-[rgba(255,255,255,0.15)] shadow-2xl bg-[var(--color-brand-card)]">
+          <div className="relative rounded-xl overflow-hidden aspect-[16/10] border border-[rgba(15,23,42,0.15)] shadow-2xl bg-[var(--color-brand-card)]">
             <img
               src="/office.avif"
               alt="HyperQube team at work"
@@ -38,7 +38,7 @@ export function HeroMedia() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={mediaReveal}
-          className="hidden lg:block relative rounded-2xl overflow-hidden aspect-[21/8] border border-[rgba(255,255,255,0.15)] bg-[var(--color-brand-card)] shadow-2xl"
+          className="hidden lg:block relative rounded-2xl overflow-hidden aspect-[21/8] border border-[rgba(15,23,42,0.15)] bg-[var(--color-brand-card)] shadow-2xl"
         >
           <motion.img
             style={{ y }}

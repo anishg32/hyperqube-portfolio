@@ -122,7 +122,7 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
         <div className="p-8 border-t border-slate-100 bg-white mt-auto">
           <button
             onClick={handleDiscuss}
-            className="group flex w-full sm:w-auto items-center justify-center gap-3 bg-white border border-[#0B132B] px-8 py-4 text-[13px] font-normal tracking-[0.05em] uppercase text-[#0B132B] hover:bg-[#0B132B] hover:text-white transition-colors"
+            className="group flex w-full sm:w-auto items-center justify-center gap-3 bg-white border border-[#0B132B] px-8 py-4 text-[13px] font-normal tracking-[0.05em] uppercase text-[#0B132B] hover:bg-[#0B132B] hover:text-[var(--color-brand-text)] transition-colors"
           >
             Discuss this capability
             <ArrowRight className="w-4 h-4 transition-transform" />

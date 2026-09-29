@@ -16,8 +16,50 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "HyperQube — Software • Data • Intelligence",
-  description: "HyperQube builds modern software, intelligent systems, data solutions and digital products for businesses, startups and growing teams.",
+  title: "HyperQube — Software, Data & Intelligent Systems",
+  description: "HyperQube builds custom software, digital products, intelligent systems and data-driven solutions for startups, businesses and growing teams.",
+  metadataBase: new URL("https://hyperqube.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "HyperQube — Software, Data & Intelligent Systems",
+    description: "HyperQube builds custom software, digital products, intelligent systems and data-driven solutions for startups, businesses and growing teams.",
+    url: "https://hyperqube.com",
+    siteName: "HyperQube",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "HyperQube — Software, Data & Intelligent Systems",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HyperQube — Software, Data & Intelligent Systems",
+    description: "HyperQube builds custom software, digital products, intelligent systems and data-driven solutions for startups, businesses and growing teams.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
