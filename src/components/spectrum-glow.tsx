@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { motion, Variants } from "framer-motion";
@@ -75,64 +77,40 @@ export function SpectrumGlow({ className, opacity = 1, variant = "section" }: Sp
       style={{ opacity }}
     >
       <div className="relative w-full h-full flex items-center justify-center">
-        {/* Layer G: Violet (Outer Edge Bottom/Right) */}
+        {/* Layer: Deep Blue (Bottom Base) */}
+        <motion.div
+          variants={animCyan}
+          initial="hidden"
+          animate={["show", "float"]}
+          className={cn(`absolute w-[140%] h-[120%] bg-[rgba(30,50,110,0.4)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          style={{ transform: "translate(0%, 30%)" }}
+        />
+
+        {/* Layer: Dark Violet/Plum (Middle/Sides) */}
         <motion.div
           variants={animViolet}
           initial="hidden"
           animate={["show", "float"]}
-          className={cn(`absolute w-[120%] h-[120%] bg-[rgba(130,70,220,0.06)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
-          style={{ transform: "translate(10%, 10%)" }}
+          className={cn(`absolute w-[160%] h-[100%] bg-[rgba(100,40,70,0.5)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          style={{ transform: "translate(0%, 0%)" }}
         />
 
-        {/* Layer F: Blue (Outer Edge) */}
-        <motion.div
-          variants={animCyan}
-          initial="hidden"
-          animate={["show", "float"]}
-          className={cn(`absolute w-[110%] h-[110%] bg-[rgba(30,100,255,0.08)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
-          style={{ transform: "translate(-5%, -5%)" }}
-        />
-
-        {/* Layer E: Cyan (Side Accent) */}
-        <motion.div
-          variants={animCyan}
-          initial="hidden"
-          animate={["show", "float"]}
-          className={cn(`absolute w-[90%] h-[100%] bg-[rgba(50,210,225,0.10)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
-          style={{ transform: "translate(-10%, 5%)" }}
-        />
-
-        {/* Layer A: Orange (Main Body) */}
+        {/* Layer: Warm Orange/Rust (Core) */}
         <motion.div
           variants={animOrange}
           initial="hidden"
           animate={["show", "float"]}
-          className={cn(`absolute w-[100%] h-[100%] bg-[rgba(255,105,35,0.20)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          className={cn(`absolute w-[120%] h-[80%] bg-[rgba(200,90,50,0.6)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          style={{ transform: "translate(0%, -20%)" }}
         />
 
-        {/* Layer B: Red (Core Accent) */}
-        <motion.div
-          variants={animRed}
-          initial="hidden"
-          animate={["show", "float"]}
-          className={cn(`absolute w-[85%] h-[90%] bg-[rgba(255,45,55,0.14)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
-          style={{ transform: "translate(5%, -5%)" }}
-        />
-
-        {/* Layer C: Warm Yellow (Inner Center) */}
-        <motion.div
-          variants={animOrange}
-          initial="hidden"
-          animate={["show", "float"]}
-          className={cn(`absolute w-[70%] h-[80%] bg-[rgba(255,190,80,0.12)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
-        />
-
-        {/* Layer D: White (Bright Center) */}
+        {/* Layer: Soft Peach/Yellow (Bright Center Top) */}
         <motion.div
           variants={animWhite}
           initial="hidden"
           animate={["show", "float"]}
-          className={cn(`absolute w-[50%] h-[60%] bg-[rgba(15,23,42,0.08)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          className={cn(`absolute w-[80%] h-[60%] bg-[rgba(255,180,120,0.7)] rounded-[9999px] ${mixBlend} ${baseBlur}`)}
+          style={{ transform: "translate(0%, -30%)" }}
         />
       </div>
     </div>

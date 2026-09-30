@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useRef, useState } from "react";
@@ -51,79 +53,53 @@ export function Faq() {
   return (
     <section
       ref={ref}
-      className="py-32 lg:py-40 bg-[var(--color-brand-bg)] border-t border-[var(--color-brand-border)] relative overflow-hidden"
+      className="py-32 lg:py-40 bg-[#050505] relative overflow-hidden"
     >
-      {/* Subtle Spectrum Bloom */}
-      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] pointer-events-none opacity-30">
-        <SpectrumGlow variant="section" />
-      </div>
-
-      <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-        <div className="mb-16 lg:mb-24 flex flex-col items-center text-center max-w-[800px] mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-8"
-          >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#101010] border border-[var(--color-brand-border)] text-[11px] font-medium tracking-[0.1em] text-[var(--color-brand-text)] uppercase">
-              FAQ
-            </span>
-          </motion.div>
-          
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-8 relative z-10 flex flex-col items-center">
+        
+        {/* Title area can remain or be simplified. The screenshot only shows the list, but we need a title. Let's keep it minimal. */}
+        <div className="mb-16 lg:mb-24 flex flex-col items-center text-center">
           <BlurryText 
             as="h2" 
             delay={0.1}
-            className="text-[clamp(40px,5vw,64px)] font-medium tracking-[-0.03em] text-[var(--color-brand-text)] leading-[1.05] mb-6"
+            className="text-[clamp(32px,5vw,48px)] font-medium tracking-tight text-[#F5F5F5] mb-4"
           >
-            Questions, <br className="hidden sm:block" />
-            <em className="font-editorial italic font-normal text-[clamp(44px,5.5vw,72px)] text-[var(--color-brand-text-secondary)]">before we build?</em>
+            Questions?
           </BlurryText>
-          
-          <motion.p
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            variants={textReveal}
-            transition={{ delay: 0.8 }}
-            className="text-[17px] lg:text-[19px] text-[var(--color-brand-text-secondary)] leading-[1.65] max-w-[500px]"
-          >
-            A few things people usually want to know before starting a project with HyperQube.
-          </motion.p>
         </div>
 
-        <div className="max-w-[1100px] mx-auto flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-3">
           {FAQS.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                transition={{ duration: 0.5, delay: i * 0.05, ease: "easeOut" }}
                 className={cn(
-                  "group relative rounded-2xl bg-[#080808] border transition-colors duration-500 overflow-hidden",
-                  isOpen ? "border-[rgba(15,23,42,0.15)]" : "border-[rgba(15,23,42,0.08)] hover:border-[rgba(15,23,42,0.15)]"
+                  "group relative transition-all duration-300 overflow-hidden bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-[12px]",
+                  isOpen ? "bg-[#0D0D0F]" : "hover:border-[rgba(255,255,255,0.15)]"
                 )}
               >
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between p-6 lg:px-10 lg:py-8 text-left outline-none cursor-pointer"
+                  className="w-full flex items-center justify-between p-5 lg:px-6 lg:py-5 text-left outline-none cursor-pointer relative z-10"
                 >
-                  <span className="text-[18px] lg:text-[20px] font-medium text-[var(--color-brand-text)] transition-transform duration-300 group-hover:translate-x-1">
+                  <span className={cn(
+                    "text-[15px] lg:text-[16px] font-normal transition-colors duration-300",
+                    isOpen ? "text-white" : "text-[#E0E0E0] group-hover:text-white"
+                  )}>
                     {faq.q}
                   </span>
                   
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full border border-[var(--color-brand-border)] bg-[var(--color-brand-bg)] shrink-0 ml-6 relative transition-colors duration-300 group-hover:border-[var(--color-brand-border-hover)]">
+                  <div className="flex items-center justify-center shrink-0 ml-4 relative transition-colors duration-300">
                     <Plus 
                       className={cn(
-                        "w-4 h-4 text-[var(--color-brand-text-secondary)] transition-transform duration-500",
-                        isOpen ? "rotate-[135deg] text-[var(--color-brand-text)]" : "group-hover:rotate-90 group-hover:text-[var(--color-brand-text)]"
+                        "w-4 h-4 transition-transform duration-300",
+                        isOpen ? "rotate-[135deg] text-white" : "text-[#A1A1AA] group-hover:text-white"
                       )} 
                     />
-                    <div className={cn(
-                      "absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-accent)] transition-opacity duration-300",
-                      isOpen ? "opacity-100 shadow-[0_0_8px_rgba(255,75,62,0.8)]" : "opacity-0 group-hover:opacity-100 shadow-[0_0_8px_rgba(255,75,62,0)]"
-                    )} />
                   </div>
                 </button>
                 
@@ -133,9 +109,9 @@ export function Faq() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-8 lg:px-10 lg:pb-10 pt-0 text-[16px] lg:text-[18px] text-[var(--color-brand-text-secondary)] leading-[1.65] max-w-[800px]">
+                      <div className="px-5 pb-5 lg:px-6 lg:pb-6 pt-0 text-[14px] lg:text-[15px] text-[#A1A1AA] leading-[1.6]">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -145,6 +121,14 @@ export function Faq() {
             );
           })}
         </div>
+
+        {/* The Red Dot from the screenshot */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 w-3 h-3 rounded-full bg-[#FF3B30] shadow-[0_0_12px_rgba(255,59,48,0.8)]"
+        />
       </div>
     </section>
   );

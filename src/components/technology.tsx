@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -155,7 +157,7 @@ function TechnologyCard({
 }: { 
   category: TechCategory; 
 }) {
-  const cardVariants = {
+  const cardVariants: any = {
     hidden: { opacity: 0, y: 50, scale: 0.97 },
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
   };

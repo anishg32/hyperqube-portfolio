@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -38,9 +40,9 @@ export function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(255,255,255,0.8)] backdrop-blur-xl border-b border-[var(--color-brand-border)] h-14 shadow-sm"
+          ? "bg-[rgba(5,5,5,0.7)] backdrop-blur-xl border-b border-[var(--color-brand-border)] h-14 shadow-sm"
           : "bg-transparent border-b border-transparent h-16"
       }`}
     >

@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #FFFFFF;
-  --color-brand-panel: #FAFBFC;
-  --color-brand-card: #F1F5F9;
+  --color-brand-bg: #050505;
+  --color-brand-panel: #080808;
+  --color-brand-card: #0A0A0B;
+  --color-brand-neutral: #101014;
   
-  --color-brand-text: #0F172A;
-  --color-brand-text-secondary: #1E293B;
-  --color-brand-text-muted: #64748B;
-  --color-brand-text-very-muted: #94A3B8;
+  --color-brand-text: #F5F5F5;
+  --color-brand-text-secondary: #A1A1AA;
+  --color-brand-text-muted: #71717A;
+  --color-brand-text-very-muted: #52525B;
   
-  --color-brand-accent: #DC2626;
-  --color-brand-accent-light: #EF4444;
+  --color-brand-accent: #FF3B30;
+  --color-brand-accent-light: #FF6A3D;
   
-  --color-brand-border: rgba(15, 23, 42, 0.08);
-  --color-brand-border-hover: rgba(15, 23, 42, 0.16);
-  --color-brand-border-accent: rgba(220, 38, 38, 0.30);
+  --color-brand-border: rgba(255, 255, 255, 0.10);
+  --color-brand-border-hover: rgba(255, 255, 255, 0.16);
+  --color-brand-border-accent: rgba(255, 59, 48, 0.30);
 
   --font-primary: var(--font-primary), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -23,8 +24,8 @@
 }
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #0F172A;
+  --background: #050505;
+  --foreground: #F5F5F5;
 }
 
 html {
@@ -50,15 +51,24 @@ body {
 
 
 .atmosphere-warm {
-  background: radial-gradient(ellipse, rgba(255, 90, 40, 0.18), rgba(210, 30, 45, 0.10), rgba(255, 255, 255, 0.03), transparent 70%);
+  background: radial-gradient(ellipse, rgba(255, 59, 48, 0.12), rgba(255, 106, 61, 0.08), rgba(255, 255, 255, 0.02), transparent 70%);
 }
 
 .atmosphere-warm-soft {
-  background: radial-gradient(circle, rgba(210, 35, 50, 0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(255, 59, 48, 0.08) 0%, transparent 65%);
 }
 
 .atmosphere-white {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.035) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 65%);
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+  border-radius: 28px;
 }
 
 @media (prefers-reduced-motion: reduce) {

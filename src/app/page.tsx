@@ -1,37 +1,39 @@
-import { CinematicIntro } from "@/components/cinematic-intro";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { HeroMedia } from "@/components/hero-media";
 import { CapabilityStrip } from "@/components/capability-strip";
 import { BeforeWeBuild } from "@/components/before-we-build";
-import { ServiceIndex } from "@/components/service-index";
+import { WhatWeBuild } from "@/components/what-we-build";
 import { Principles } from "@/components/principles";
 import { Process } from "@/components/process";
-import { Technology } from "@/components/technology";
+import { EngineeringStack } from "@/components/engineering-stack";
 import { Faq } from "@/components/faq";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { SpectrumGlow } from "@/components/spectrum-glow";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--color-brand-bg)] overflow-x-hidden">
-      <CinematicIntro />
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <HeroMedia />
-        <CapabilityStrip />
-        <BeforeWeBuild />
-        <ServiceIndex />
-        <Principles />
-        <Process />
-        <Technology />
-        <Faq />
-        <Contact />
-      </main>
+    <SmoothScroll>
+      <div className="min-h-screen bg-[var(--color-brand-bg)] overflow-clip w-full relative">
+        <Navbar />
+        
+        <main className="relative z-10">
+          <Hero />
+          <HeroMedia />
+          <CapabilityStrip />
+          <BeforeWeBuild />
+          <WhatWeBuild />
+          <Principles />
+          <Process />
+          <EngineeringStack />
+          <Faq />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }

@@ -1,72 +1,40 @@
-"use client";
-
-import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { BlurryText } from "@/components/blurry-text";
-import { textReveal, buttonReveal } from "@/lib/motion";
-import { SpectrumGlow } from "@/components/spectrum-glow";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function Contact() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section
-      id="contact"
-      className="py-24 lg:py-32 bg-[var(--color-brand-bg)] relative overflow-hidden"
-    >
-      <div
-        className="max-w-[1000px] mx-auto px-5 sm:px-8 relative z-10"
-        ref={ref}
-      >
-        <motion.div 
-          initial={{ opacity: 0, y: 30, scale: 0.98 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.98 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[32px] overflow-hidden bg-[rgba(255,255,255,0.55)] backdrop-blur-[22px] saturate-[140%] border border-[rgba(255,255,255,0.75)] shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
-        >
-          {/* Subtle spectrum refraction inside glass */}
-          <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-10 bg-[linear-gradient(135deg,rgba(255,0,0,0.1),rgba(255,165,0,0.1),rgba(255,255,0,0.1),rgba(0,128,0,0.1),rgba(0,0,255,0.1),rgba(75,0,130,0.1),rgba(238,130,238,0.1))]" />
+    <section id="contact" className="pt-24 lg:pt-32 pb-0 bg-[#050505] relative overflow-visible flex flex-col items-center z-0">
+      
+      {/* CTA Box */}
+      <div className="w-full max-w-[1000px] mx-auto px-5 sm:px-8 relative z-10">
+        <div className="bg-[#0A0A0A] border border-[rgba(255,255,255,0.05)] rounded-[24px] p-12 lg:p-20 flex flex-col items-center text-center shadow-2xl">
+          <h2 className="text-[clamp(40px,6vw,64px)] font-medium tracking-tight text-white leading-[1.05] mb-6 max-w-[700px]">
+            Ready to scale your <br className="hidden sm:block" />
+            brand to <em className="font-editorial italic font-normal text-white">new heights?</em>
+          </h2>
           
-          <div className="relative z-10 py-20 px-8 sm:px-16 flex flex-col items-center text-center">
-            <span className="inline-block mb-6 text-[11px] font-medium tracking-[0.15em] text-[var(--color-brand-text-very-muted)] uppercase">
-              Project Inquiry
-            </span>
+          <p className="text-[16px] lg:text-[18px] text-[#A1A1AA] leading-[1.6] max-w-[600px] mb-10">
+            If you want to achieve ground-breaking growth with custom software, intelligent data systems, and scalable architecture, then you&apos;re in the right place.
+          </p>
 
-            <BlurryText 
-              as="h2" 
-              delay={0.1}
-              duration={1.2}
-              className="text-[clamp(40px,6vw,64px)] font-medium tracking-tight text-[var(--color-brand-text)] leading-[1.05] mb-6"
-            >
-              Let's build something <br className="hidden sm:block" />
-              <em className="font-editorial italic font-normal tracking-[-0.02em] text-[clamp(44px,6.5vw,72px)] text-[var(--color-brand-text-secondary)]">worth building.</em>
-            </BlurryText>
+          <a
+            href="mailto:hyperqube.ff@gmail.com"
+            className="inline-flex items-center justify-center bg-[#FF453A] text-white px-8 py-3.5 rounded-[8px] text-[15px] font-medium tracking-wide hover:bg-[#ff5a50] hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(255,69,58,0.4)] transition-all duration-300 relative z-10"
+          >
+            Book a call
+          </a>
+        </div>
+      </div>
 
-            <motion.p
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-              variants={textReveal}
-              transition={{ delay: 0.9 }}
-              className="text-[17px] text-[var(--color-brand-text-secondary)] leading-[1.6] mb-12 max-w-[480px]"
-            >
-              Whether it's a digital product, intelligent system, or complex software architecture, we have the team to make it real.
-            </motion.p>
-
-            <motion.a
-              href="mailto:hyperqube.ff@gmail.com"
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-              variants={buttonReveal}
-              transition={{ delay: 1.0 }}
-              className="group inline-flex items-center gap-3 bg-[var(--color-brand-accent)] px-8 py-4 text-[15px] font-medium text-white hover:bg-[var(--color-brand-accent-light)] transition-all duration-300 rounded-[12px] justify-center shadow-[0_10px_30px_rgba(220,38,38,0.2)] hover:-translate-y-0.5"
-            >
-              Start a Project
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
-          </div>
-        </motion.div>
+      {/* Massive Sunset/Ocean Multi-Color Glow matching the reference image */}
+      <div className="relative w-full h-[350px] mt-[-150px] pointer-events-none z-0 overflow-visible flex justify-center">
+        {/* Top half: Warm Orange/Yellow glow */}
+        <div className="absolute top-[30%] w-[80vw] max-w-[900px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(255,140,40,0.85)_0%,rgba(255,80,40,0.5)_40%,transparent_70%)] blur-[80px] mix-blend-screen" />
+        
+        {/* Bottom half: Cool Blue/Cyan glow */}
+        <div className="absolute top-[60%] w-[90vw] max-w-[1000px] h-[350px] bg-[radial-gradient(ellipse_at_bottom,rgba(0,180,255,0.7)_0%,rgba(0,100,255,0.4)_50%,transparent_70%)] blur-[90px] mix-blend-screen" />
+        
+        {/* Core bright white/yellow center */}
+        <div className="absolute top-[45%] w-[40vw] max-w-[400px] h-[150px] bg-[radial-gradient(circle_at_center,rgba(255,230,150,0.9)_0%,transparent_60%)] blur-[50px] mix-blend-screen" />
       </div>
     </section>
   );

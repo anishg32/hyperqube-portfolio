@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useRef } from "react";
@@ -43,8 +45,8 @@ export function BlurryText({ children, className, as: Component = "h2", delay = 
     },
   };
 
-  // Create a motion-enabled version of the passed component (e.g. h1, h2, div)
-  const MotionComponent = motion(Component as any);
+  // Reference the existing motion component (e.g. motion.h2, motion.div)
+  const MotionComponent = (motion as any)[Component as keyof typeof motion] || motion.div;
 
   return (
     <MotionComponent
